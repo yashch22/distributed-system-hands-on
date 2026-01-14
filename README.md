@@ -135,3 +135,53 @@ This will run the test suite 10 times (replace 10 with any number).
 - Parallel execution: Multiple workers can process tasks concurrently
 - Task tracking: Coordinator tracks task states and ensures all tasks complete
 
+## Project: Concurrency Examples
+
+This project contains educational examples demonstrating different concurrency patterns in Go.
+
+### Implementation Files
+
+- `src/concurrency/crawler.go` - Web crawler implementations demonstrating serial, mutex-based, and channel-based concurrency
+- `src/concurrency/kv.go` - Key-value store with RPC client-server architecture
+
+### Web Crawler (crawler.go)
+
+Demonstrates three different approaches to implementing a web crawler:
+
+1. **Serial crawler** - Sequential recursive depth-first traversal
+2. **Concurrent crawler with mutex** - Uses shared state protected by mutex synchronization
+3. **Concurrent crawler with channels** - Uses channel-based coordination pattern
+
+Running the crawler:
+
+```bash
+cd src/concurrency
+go run crawler.go
+```
+
+This will run all three implementations and demonstrate their different approaches to web crawling.
+
+### Key-Value Store (kv.go)
+
+Implements a simple distributed key-value store using RPC:
+
+- **Server**: Thread-safe key-value store with Get and Put operations
+- **Client**: RPC client that connects to the server and performs operations
+- **Communication**: TCP-based RPC on port 1234
+
+Running the key-value store:
+
+```bash
+cd src/concurrency
+go run kv.go
+```
+
+The program starts a server and then performs sample get/put operations.
+
+### Features
+
+- **Multiple concurrency patterns**: Demonstrates mutex-based vs channel-based concurrency
+- **RPC communication**: Shows how to implement RPC client-server architecture
+- **Thread-safe operations**: Mutex-protected shared state for concurrent access
+- **Educational examples**: Reference implementations for common concurrency patterns
+
